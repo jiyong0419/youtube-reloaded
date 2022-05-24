@@ -4,16 +4,19 @@
   "description": "The best way to watch videos.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "node index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jiyong0419/youtube-reloaded.git"
   },
   "author": "Jeon Ji Yong",
-  "license": "ISC",
+  "license": "Nomad Academy",
   "bugs": {
     "url": "https://github.com/jiyong0419/youtube-reloaded/issues"
   },
-  "homepage": "https://github.com/jiyong0419/youtube-reloaded#readme"
+  "homepage": "https://github.com/jiyong0419/youtube-reloaded#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
 }
