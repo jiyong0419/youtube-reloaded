@@ -49,3 +49,11 @@
                 >> npm i 명령어를 하기전에 json파일은 꼭 닫고서 실행한다
         2. 모든 package.json파일의 "dependencies"는 해당 package가 동작하는데 필요한 패키지,파일들이 적혀있음
                 >> npm i express를 하면 express 패키지의 dependencies도 같이 다운받아진다
+
+#2.2 Understanding Dependencies
+    ㄴ  node_modules폴더와 package-lock.json을 지워도 간단히 복구할수있다.
+        - npm i 
+            >> package.json의 "dependencies"를 보고 npm이 그 안의 모듈들을 다시 재설치해준다.
+    ㄴ  .gitigonore 파일을 만들어서 node_modules폴더의 커밋을 무시해준다.
+        - /node_modules
+*/
