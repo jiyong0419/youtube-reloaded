@@ -34,4 +34,11 @@
            브라우저가 서버에게 google.com/ 페이지를 요청하고 
            서버는 브라우저에게 google.com/ 페이지를 전해주고
            브라우저는 GET해온 google.com/ 페이지를 유저에게 보여준다.
+
+
+#3.2 GET Requests 2
+    ㄴ  서버에 GET requests가 들어왔을때 응답 설정하기
+        1. app.get("/",handleHome)
+            - get함수의 첫번째 파라미터는 url, 두번쨰 파라미터는 callback함수
+        2. app과 관련된 함수들은 대게 샌드위치존(app선언문과 handleListening선언문 사이)에 작성한다
 */
