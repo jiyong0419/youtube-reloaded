@@ -26,5 +26,12 @@
             - 서버를 종료하는 방법
 
 
+#3.1 GET Requests
+    ㄴ  / = url에서 서버의 root, 혹은 첫 페이지를 뜻함 (google.com === google.com/)
 
+    ㄴ  GET은 HTTP method중 하나다
+        1. url에 google.com을 입력하면 유저가 google.com으로 들어가는것이 아니라 
+           브라우저가 서버에게 google.com/ 페이지를 요청하고 
+           서버는 브라우저에게 google.com/ 페이지를 전해주고
+           브라우저는 GET해온 google.com/ 페이지를 유저에게 보여준다.
 */
