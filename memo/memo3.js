@@ -39,6 +39,18 @@
 #3.2 GET Requests 2
     ㄴ  서버에 GET requests가 들어왔을때 응답 설정하기
         1. app.get("/",handleHome)
-            - get함수의 첫번째 파라미터는 url, 두번쨰 파라미터는 callback함수
-        2. app과 관련된 함수들은 대게 샌드위치존(app선언문과 handleListening선언문 사이)에 작성한다
-*/
+            - get함수의 첫번째 파라미터는 url, 두번쨰 파라미터는 controller
+            
+
+#3.3 Responses
+    ㄴ  express에선 controller에 req,res두개의 아규먼트가 전달된다
+        1. console.log(req)를 하면 쿠키,method,url등의 정보를 확인할수있고 사용할수있다.
+        2. res의 함수로는 res.end()가있는데 최종적으로 응답을 끝내는 용도이다.
+        3. res의 함수로는 res.send()도있는데 ()안에 문자열을 입력하면 화면에 출력해준다
+            - res.send("I still love you") 
+                >> 브라우저 화면에 I still love you가 출력됨
+    
+    ㄴ  app.get('/login',handleLogin)에서 '/login'을 route라고 하며 handleLogin을 controller라고한다.
+
+    
+*/  
