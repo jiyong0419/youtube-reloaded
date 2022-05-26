@@ -69,4 +69,24 @@
         1. FinalWare는 next argument가 필요하지 않다.
 
     ㄴ  req는 request에 관한 정보를 가지고있는 object이므로 req.url 로 url정보를 가져올수있다.
+
+
+#3.6 Middlewares 2
+    ㄴ  app.use()는 모든 url요청에 반응하는 Middleware이다..
+        1. app.use(handleFirst)
+           app.get("/",handleSecond)
+           app.get("/login",handleThird)
+            - app.use(handleFirst)가 실행되고 route에 따라 app.get()의 controller가 실행된다.
+            - app.use()의 controller에는 당연히 next()가 있어야한다.
+
+    ㄴ  app.use()는 app.get()보다 항상 먼저 나와야한다.
+
+    ㄴ  app.use()의 controller에도 res.end(), res.send()등을 쓸수있다.
+        1. app.use(handleFirst)
+           const handleFirst = (req,res,next) => {
+               if(req.url==="/login"){ console.log(`You successed login);}
+               next();
+           }
+
+    ㄴ  req는 request에 관한 정보를 가지고있는 object이므로 req.method 로 method정보를 가져올수있다.
 */  
