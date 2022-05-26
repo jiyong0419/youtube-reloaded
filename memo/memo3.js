@@ -89,4 +89,16 @@
            }
 
     ㄴ  req는 request에 관한 정보를 가지고있는 object이므로 req.method 로 method정보를 가져올수있다.
-*/  
+
+
+#3.11 Morgan Middleware
+    ㄴ  morgan은 nodeJS에서 사용하는 logger middleware다.
+
+    ㄴ  morgan 설치 및 사용하기
+        1. 콘솔에 npm i morgan
+        2. import morgan from "morgan"
+        3. const morganDev = morgan("dev")
+           app.use(morganDev)
+           - morgan함수는 dev,combined,common,short,tiny 5개옵션이있다.
+        
+    */  

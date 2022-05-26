@@ -1,7 +1,9 @@
 import express from 'express';
+import morgan from 'morgan';
 
 const PORT = 4000
 
+const morganDev = morgan("dev")
 const app = express();
 
 const logger = (req,res,next) => {
@@ -20,6 +22,7 @@ const handleHome2 = (req,res) => {
     res.send(`<h1> handleHome2 exits request! <h1>`)
 }
 
+app.use(morganDev)
 app.use(logger)
 app.get("/",handleHome,handleHome2)
 
