@@ -53,4 +53,20 @@
     ㄴ  app.get('/login',handleLogin)에서 '/login'을 route라고 하며 handleLogin을 controller라고한다.
 
     
+#3.5 Middlewares 
+    ㄴ  Middleware는 request와 response사이에 존재한다.
+        1. 브라우저가 request하고 서버가 response하기 전, 그 사이에 Middleware가 있다.
+        2. Middleware는 controller이다.
+        3. 모든 controller는 Middleware가 될수있다.
+        4. controller는 req,res 외에 next라는 argument를 갖고있다.
+            - next는 app.get() 등의 controller가 두개 이상일 때, 다음 controller를 호출해준다.
+                >> app.get("/",handleFirst,handleSecond)
+                   const handleFirst = (req,res,next) => {next()}
+                   const handleSecond = (req,res) => {res.end()}
+                >> handleFirst가 실행되고 handleFirst가 handleSecond를 불러온다. handleSecond가 실행되고 handleSecond는 응답을 종료한다.
+
+    ㄴ  마지막으로 호출되는 controller는 Finalware라고 한다.
+        1. FinalWare는 next argument가 필요하지 않다.
+
+    ㄴ  req는 request에 관한 정보를 가지고있는 object이므로 req.url 로 url정보를 가져올수있다.
 */  
