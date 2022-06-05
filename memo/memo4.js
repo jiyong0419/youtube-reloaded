@@ -10,6 +10,7 @@
 
     ㄴ  README파일에 필요한 url들을 정리해보도록 하자
 
+
 #4.1 Making Our Routers
     ㄴ  Router사용법
         1. const globalRouter = express.Router();
@@ -28,6 +29,7 @@
            userRouter.get("/",handleEditUser)
            videoRouter.get("/",handleWatchVideo)
             - 각각 Router.get으로 각각 Router들에게 controller를 적용한다.
+          
             
 #4.2 Cleaning the Code
     ㄴ  Router를 따로 모아두는 폴더를 만들자
@@ -59,6 +61,7 @@
     
     ㄴ  export default는 변수하나를 export한다
         1. 자세한 내용은 #4.3강의에서
+
 
 # 4.3 Exports
     ㄴ  Controller를 따로 모아두는 폴더를 만들자
@@ -96,4 +99,15 @@
         1. export default는 문서내에서 하나의 변수만 export해준다
         2. export는 문서내에서 여러개의 변수를 export해준다
         
+
+#4.7 URL Parameters part One
+    ㄴ  route자리에 "/:something"을(parameter) 씀으로써 url안에 변수를 포함시킬수 있게 해준다.
+        1. videoRouter.get("/:id",see) >>> localhost:4000/video/1 , localhost:4000/video/2 , localhost:4000/video/3 ...
+        2. videoRouter.get("/:id",see) >>> localhost:4000/video/potato, localhost:4000/video/banana, localhost:4000/video/tomato
+        3. parameter를 확인하는법
+            - export const see = (req,res) => console.log(req.params)
+        4. parameter가 아닌 route는 parameter보다 먼저 작성되어야한다.
+            - /upload가 /:id보다 나중에 작성될경우 express는 /upload를 parameter로 인식하기때문
+
+            
         */         
