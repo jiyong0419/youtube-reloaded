@@ -48,7 +48,7 @@
             - globalRouter.get("/",handleHome)
             - userRouter.get("/edit",handleEditUser)
             - videoRouter.get("/watch",handleWatchVideo)
-        5. 각 Router.js에서 Router변수들을 export해주자
+        5. 각 Router.js에서 Router변수들을 export default해주자
             - export default globalRouter
             - export default userRouter
             - export default videoRouter
@@ -60,8 +60,40 @@
     ㄴ  export default는 변수하나를 export한다
         1. 자세한 내용은 #4.3강의에서
 
-
+# 4.3 Exports
+    ㄴ  Controller를 따로 모아두는 폴더를 만들자
+        1. src안에 controllers폴더를 생성
+        2. controllers폴더안에 userController.js / videoController.js 생성
+            - globalController.js는 만들지않는다 
+                >> handleHome controller는 videController, handleJoin controller는 userController에 들어간다.
+        3. 각 controller.js에 controller를 집어넣는다
+            - const handleJoin = (req,res) => res.send("Join")
+              const handleEdit = (req,res) => res.send("Edit User")
+              const handleDelete = (req,res) => res.send("Delete User")
+            - const handleHome = (req,res) => res.send("Home")
+              const handleWatch = (req,res) => res.send("Watdeo")
+              const handleEdit = (req,res) => res.send("Edit Video")
+        4. controller 변수명을 간단하게 바꿔주자
+            - handleHome -> trending
+              handleJoin -> join
+              handleEdit -> edit
+              handleDelte -> remove (delete는 예약어)
+              handleWatch -> watch
+        5. 각 controller들을 export해주자
+            - export const join = (req,res) => res.send("Join")
+              export const edit = (req,res) => res.send("Edit User")
+              export const remove = (req,res) => res.send("Remove User")
+            - export const trending = (req,res) => res.send("Home Page Trending Video")
+              export const watch = (req,res) => res.send("Watch Video")
+              export const edit = (req,res) => res.send("Edit Video")
+        6. 각 Router.js에서 controller들을 import해주자
+            - import { trending } from '../controllers/videoController';
+              import { join } from '../controllers/userController';
+            - import { edit,remove } from '../controllers/userController';
+            - import { watch,edit } from '../controllers/videoController';
         
-        
+    ㄴ  export default와 export의 차이
+        1. export default는 문서내에서 하나의 변수만 export해준다
+        2. export는 문서내에서 여러개의 변수를 export해준다
         
         */         
