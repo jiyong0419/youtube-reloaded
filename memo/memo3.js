@@ -59,7 +59,7 @@
         2. Middleware는 controller이다.
         3. 모든 controller는 Middleware가 될수있다.
         4. controller는 req,res 외에 next라는 argument를 갖고있다.
-            - next는 app.get() 등의 controller가 두개 이상일 때, 다음 controller를 호출해준다.
+            - next는 controller가 두개 이상일 때, 다음 controller를 호출해준다.
                 >> app.get("/",handleFirst,handleSecond)
                    const handleFirst = (req,res,next) => {next()}
                    const handleSecond = (req,res) => {res.end()}
