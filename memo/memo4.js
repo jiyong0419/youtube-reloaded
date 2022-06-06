@@ -109,5 +109,34 @@
         4. parameter가 아닌 route는 parameter보다 먼저 작성되어야한다.
             - /upload가 /:id보다 나중에 작성될경우 express는 /upload를 parameter로 인식하기때문
 
-            
+
+#4.8 URL parameters part Two
+    ㄴ  정규식은 문자열로부터 특정정보를 추출하는방법
+
+    ㄴ  express Routing 정규식
+        1. "/ab*cd" = ab로시작하고 cd로끝나는 모든것들
+        2. "/ab+cd" = abcd중에 b가 몇개이던 상관없이 abbbb...cd
+        3. "/ab?cd" = b는 옵션 abcd, acd
+        4. "/a(bc)?d" = 그룹 옵션 abcd, ad
+    
+    ㄴ  parameter를 숫자만 받으려면 (\\d+)을 추가해준다
+        1. videoRouter.get("/:id(\\d+)",see)
+
+    ㄴ  express 정규식에관해서는 expressjs.com/en/guide/routing.html에서 확인
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         */         
