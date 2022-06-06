@@ -59,4 +59,12 @@
             - h1 Title!가 h1 Home!으로 바뀐다
 
 
+#5.4 Variables to Templates
+    ㄴ  controller에서 pug템플릿으로 변수 전달하기
+        1. base.pug에서 변수가 들어갈 칸을 만들어준다
+            - title #{pageTitle} | Youtube
+        2. controller에서 res.render() 괄호안에 첫번째 파라미터는 템플릿의 이름, 두번째 파라미터는 객체형식으로 변수명을 보낸다.
+            - export const trending = (req,res) => res.render("home",{ pageTitle:"Home" ,...})
+                >>> #{pageTitle}자리에 Home이 들어간다
+        
 */
