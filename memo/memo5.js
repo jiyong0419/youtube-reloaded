@@ -28,4 +28,20 @@
                     footer &copy; 2022 Youtube
         7. controller에서 pug파일을 렌더링해준다
             - export const trnding = (req,res) => res.render("home")
+
+
+#5.2 Partials
+    ㄴ  PUG에서 변수활용방법
+        1. #{}
+            - footer &copy; #{new Date.getFullYear()}.Youtube
+
+    ㄴ  Partials 사용법
+        1. views폴더안에 partials폴더를 만든다
+        2. partial을 적용시킬 파일을 하나 만든다
+            - footer.pug
+        3. partial.pug안에 partial구문을 쓴다
+            - footer.pug >>> footer &copy; #{new Date().getFullYear()} Youtube
+        4. partial이 필요할 pug파일에서 partial이 들어갈 행에 partial.pug를 include 시켜준다
+            - watch.pug / home.pug >>> include partials/footer.pug
+
 */
