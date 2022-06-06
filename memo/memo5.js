@@ -77,5 +77,31 @@
             - link(rel="stylesheet" href="https://unpkg.com/mvp.css") 로 바꿔준다. pug스타일
     
     ㄴ  pug에서 HTML태그를 작성할땐 <>를 쓰지않고, 태그의 속성을 작성할땐 ()안에 작성한다.
+
+
+#5.7 Conditionals
+    ㄴ  pug에서 변수를 사용할때 #{}를 사용하지만 변수가 텍스트와 같이 사용되는것이 아니라면 h1=pageTitle 이런식으로 사용해도 된다
+        1. h1=pageTitle === h1 #{pageTitle}
     
-*/
+    ㄴ controller에서 object를 변수로 넘길수 있다.
+        1. const fakeUser = {userName:"Nicolas",loggedIn:false}
+           export const trending = (req,res) => res.render("home",{ pageTitle:"Home", fakeUser:fakeUser })
+            - fakeUser:fakeUser는 fakeUser로 대체할수 있다. { pageTitle:"Home", fakeUser }
+    
+    ㄴ  pug에서 조건문 쓰는법
+        1. 괄호는 모두 생략하고 들여쓰기를 사용한다.
+            - if fake User.loggedIn
+                li
+                    a(href="/logout") Log out
+            else
+                li
+                    a(href="/login") Login
+        
+        
+        
+        
+        
+        
+        
+        
+        */
