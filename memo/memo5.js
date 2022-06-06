@@ -67,4 +67,15 @@
             - export const trending = (req,res) => res.render("home",{ pageTitle:"Home" ,...})
                 >>> #{pageTitle}자리에 Home이 들어간다
         
+
+#5.6 MVP Styles            
+    ㄴ  MVP CSS는 HTML의 element들을 보다 예쁘게 만들어준다.    
+
+    ㄴ  MVP CSS사용법
+        1. https://andybrewer.github.io/mvp/
+        2. <link rel="stylesheet" href="https://unpkg.com/mvp.css">를 복사 >> base.pug의 head안에 붙혀넣기
+            - link(rel="stylesheet" href="https://unpkg.com/mvp.css") 로 바꿔준다. pug스타일
+    
+    ㄴ  pug에서 HTML태그를 작성할땐 <>를 쓰지않고, 태그의 속성을 작성할땐 ()안에 작성한다.
+    
 */

@@ -2,6 +2,8 @@ doctype html
 html(lang="ko")
     head
         title #{pageTitle} | Youtube
+        link(rel="stylesheet" href="https://unpkg.com/mvp.css")
     body
-        block title 
-    include partials/footer.pug
+        main
+            block title 
+            include partials/footer.pug
