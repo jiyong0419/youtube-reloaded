@@ -44,4 +44,19 @@
         4. partial이 필요할 pug파일에서 partial이 들어갈 행에 partial.pug를 include 시켜준다
             - watch.pug / home.pug >>> include partials/footer.pug
 
+
+#5.3 Extending Templates
+    ㄴ  pug 파일들의 양식을 반복하는걸 막기위해 base.pug를 만들고 이를 다른 pug파일에 확장시켜준다
+        1. views폴더안에 base.pug파일을 생성
+        2. 다른 pug파일들에서 extends base.pug 작성
+            - base.pug를 다른 pug파일에서 가져다쓴다.
+    
+    ㄴ  확장된 base.pug의 html태그들중 일부를 지정해 변경시킬 수 있다. (block기능)
+        1. base.pug >>> body >>> h1 Title! 을 다른 pug파일에서 변경하고 싶으면 h1 Title! 자리에 block title라고 써준다
+            - h1 Title! >>> block title
+        2. 변경할 pug파일(ex home.pug)에 와서   block title 
+                                                    h1 Home!    을 작성한다.
+            - h1 Title!가 h1 Home!으로 바뀐다
+
+
 */
