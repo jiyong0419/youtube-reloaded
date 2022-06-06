@@ -96,10 +96,25 @@
             else
                 li
                     a(href="/login") Login
-        
-        
-        
-        
+
+
+#5.8 Iteration
+    ㄴ  Iteration은 list(array)를 순환해준다
+    
+    ㄴ  controller에서 array를 변수로 넘길수 있다.
+        1. export const trending = (req,res) => {
+            const videos = [1,2,3,4,5,6,7,8,9,10]
+            res.render("home",{ pageTitle:"Home", videos:videos })
+        }
+    
+    ㄴ  pug에서 list(array)를 순환하는 방법
+        1. each 아이템 in 배열
+            - ul
+                each video in videos
+                    li=video
+                else 
+                    li Sorry nothing found
+                >> else는 array가 비어있을경우 동작한다.
         
         
         
