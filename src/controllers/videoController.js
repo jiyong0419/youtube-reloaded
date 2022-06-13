@@ -28,10 +28,10 @@ export const trending = (req,res) => {
     res.render("home", {pageTitle:"Home",videos:videos})
 }
 export const search = (req,res) => res.send("Search Video")
-export const see = (req,res) => {
+export const watch = (req,res) => {
     const id = req.params.id
     const video = videos[id-1]
-    res.render("watch",{pageTitle:`Watching ${video.title}`})
+    res.render("watch",{pageTitle:`Watching ${video.title}`,video})
 }
 export const edit = (req,res) => res.render("editVideo")
 export const remove = (req,res) => res.send("Remove Video")
