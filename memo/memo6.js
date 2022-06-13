@@ -42,5 +42,28 @@
             /를 먼저 넣지않으면 현 url의 끝부분에서부터 변경이 시작된다.
             
             
-        
+#6.2 Edit Video 
+    ㄴ  videoController.js에서 edit controller를 getEdit로 바꾸고 video object를 watch.pug에 전달해줌
+        1.  const id = req.params.id
+            const video = videos[id-1]
+            res.render("watch",{pageTitle:`Watching: ${video.title}`,video})
+
+    ㄴ  editVideo.pug의 내용을 수정해주자
+        1.  title을 h4 Change Title of video 로 변경해줌
+        2.  POST를 위한 form 을 만들어줌
+            =>  form(method="POST")
+        3.  form안에 text input과 submit input을 작성해줌
+            =>  input(placeholder="Video Title", value=video.title, required)
+                input(value="Save",type="submit")
+        4.  videoRouter.js에서 edit controller를 getEdit로 수정해준다
+
+    ㄴ  editVideo.pug 에서 POST한 form을 받을 post함수를 작성하자
+        1.  videoRouter.js에서 videoRouter.post("/:id(\\d+"),postEdit)
+            =>  videoRouter에 post함수를 써서 url은 get과 동일, postEdit controller를 실행해줌
+        2.  videoController.js에서 postEdit controller를 작성
+            =>  export const postEdit = (req,res) => res.send("Post Edit")
+        3.  videoRouter.js에서 postEdit를 import해준다.
+
+    ㄴ  form(method="POST")태그에는 action이라는 속성이있는데 action은 form양식을 어디로 보낼지 정해준다
+        1.  action을 생략하면 똑같은 url에 form을 전송, action="/change-video"를 입력하면 http://localhost:4000/change-video로 form을 전송
 */
