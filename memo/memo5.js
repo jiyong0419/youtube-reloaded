@@ -116,6 +116,50 @@
                     li Sorry nothing found
                 >> else는 array가 비어있을경우 동작한다.
         
+            
+#5.9 Mixins
+    ㄴ  mixin은 똑똑한 partial이다
+
+    ㄴ  controller에서 array를 변수로 넘길 때 array안에는 object도 포함될 수 있다.
+        1. const video = [
+            {
+                title:"First Video"
+            },
+            {
+                title:"Second Video"
+            },
+            {
+                title:"Third Video"
+            },
+        ]
+
+    ㄴ  mixin은 어떤 구조를 갖춘 HTML태그들을 캡슐화 한것이다.
+        1. each video in videos 
+            div
+                h4=video.title
+                ul 
+                    li #{video.rating}/5
+                    li #{video.comments} comments.
+                    li Posted #{video.createdAt}
+                    li #{video.views} views. 
+            - 유튜브를 예로들면 모든 영상의 구조는 제목,평점,댓글수,업로드시간,조회수로 구조되어있다.
+                해당 구조는 유튜브에 썸네일구조가 들어가는곳이면 언제든 쓰일수 있는 mixin이다
+    
+    ㄴ  mixin 사용법
+        1. views폴더안에 mixins폴더를 만들어준다
+        2. pug템플릿을 생성한다 
+            - video.pug
+        3. mixin video(video)
+            - mixin 변수명(파라미터)
+        4. 그 아래에 원하는 HTML구조를 작성한다.
+        5. mixin을 사용할 pug템플릿으로 가서 mixin이 들어갈 행에 +변수명(파라미터)
+            - home.pug >>>
+                each video in videos
+                    +video(video)
+                else li Sorry nothing found.
+        6. 마지막으로 해당 pug템플릿 상단에 include mixins/변수명 해준다.
+            - include mixins/video
+
         
         
         
