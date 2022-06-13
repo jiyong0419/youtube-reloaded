@@ -39,7 +39,10 @@ export const getEdit = (req,res) => {
     res.render("editVideo",{pageTitle:`Editing: ${video.title}`,video}) 
 }
 export const postEdit = (req,res) => {
-    res.send("Post Edit")
+    const {id} = req.params
+    const {title} = req.body
+    videos[id-1].title = title
+    res.redirect(`/videos/${id}`)
 }
 export const remove = (req,res) => res.send("Remove Video")
 export const upload = (req,res) => res.send("Upload Video")

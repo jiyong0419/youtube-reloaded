@@ -66,4 +66,26 @@
 
     ㄴ  form(method="POST")태그에는 action이라는 속성이있는데 action은 form양식을 어디로 보낼지 정해준다
         1.  action을 생략하면 똑같은 url에 form을 전송, action="/change-video"를 입력하면 http://localhost:4000/change-video로 form을 전송
+
+
+#6.3 Edit Video 2        
+    ㄴ  Router.get과 Router.post의 url이 같다면 한줄로 합칠 수 있다.
+        1.  Router.route("/:id(\\d+)/edit").get(getEdit).post(postEdit)
+
+    ㄴ  postEdit controller를 완성해보자
+        1.  export const postEdit = (req,res) => {
+                const {id} = req.params
+                res.redirect(`/videos/${id}`)
+            }   
+            =>  res.redirect("url")은 url로 postEdit내용을 보내주고 이동한다.
+        2.  const {id} = req.params
+            const {title} = req.body
+            videos[id-1].title = title
+            =>  postEdit에 req.body를 이용하여 form에서 입력받은 title을 database에 적용시켜준다.
+        3.  2번이 적용되기위해서 express에서 form을 읽을 수 있는 middleWare를 작성해준다
+            => server.js에서 route문 위에 app.use(express.urlencoded({extended:true}))
+                >>  express가 form을 읽을 수 있고 그것을 자바스크립트 형태로 변형시켜서 우리가 사용할 수 있게 해준다.
+                
+            
+
 */
