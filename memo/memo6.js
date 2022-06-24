@@ -87,5 +87,10 @@
                 >>  express가 form을 읽을 수 있고 그것을 자바스크립트 형태로 변형시켜서 우리가 사용할 수 있게 해준다.
                 
             
-
+#6.5 More Practice 
+    ㄴ  controller작성 > route작성 > pug페이지작성 순으로 하여라
+        1.  export const getUpload = (req,res) => {res.render("upload"),{pageTitle:"Upload Video"}}
+            export const postUpload = (req,res) => {res.redirect("/")}
+        2.  videoRouter.route("/upload").get(getUpload).post(postUpload)
+        3.  upload.pug 작성
 */
