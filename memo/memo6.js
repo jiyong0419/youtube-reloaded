@@ -101,6 +101,10 @@
   
         
 #6.7 MongoDB Introduction
-    ㄴ  mongodb.com > Resources > Server > Installation > Install MongoDB Community Edition
-        > Install on Windows > MongoDB Download Center 
+    ㄴ  MongoDB와 Chocolatey설치
+        1.  https://evandde.github.io/chocolatey/ 에서 chocolatey 설치
+        2.  powershell 관리자모드 실행
+        3.  choco install mongodb ( yes/all 나오면 a )
+        4.  https://webigotr.tistory.com/241 참고해서 진행 ( Path 추가할때 mongodb 버전 잘확인하기 )
+        5.  powershell에서 mongod입력
 */
