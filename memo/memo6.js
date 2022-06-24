@@ -98,5 +98,9 @@
 #6.6 More Practice 2
     ㄴ  req.body를 사용할떄는 input에 꼭 name지정을 해줘야함
         1.  input(name="title")
-            
+  
+        
+#6.7 MongoDB Introduction
+    ㄴ  mongodb.com > Resources > Server > Installation > Install MongoDB Community Edition
+        > Install on Windows > MongoDB Download Center 
 */
