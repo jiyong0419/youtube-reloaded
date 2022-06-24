@@ -94,6 +94,7 @@
             export const postUpload = (req,res) => {res.redirect("/")}
         2.  videoRouter.route("/upload").get(getUpload).post(postUpload)
         3.  upload.pug 작성
+<<<<<<< HEAD
 
 
 #6.6 More Practice 2
@@ -102,4 +103,6 @@
 =======
 >>>>>>> parent of 17381d3 (#6.6 More Practice)
 
+=======
+>>>>>>> parent of 5a63e84 (#6.6 More Practice 2)
 */
