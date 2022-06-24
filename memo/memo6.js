@@ -153,4 +153,5 @@
     ㄴ  정의한 schema를 model로 등록한다.
         1.  const videoModel = mongoose.model("Video", videoSchema)
             - mongoose.model("모델이름",스키마)
+    ㄴ  server.js에선 꼭 제일먼저 import "./db"를하고 import "./models/Video"를해준다
 */
