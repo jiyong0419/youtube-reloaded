@@ -107,4 +107,24 @@
         3.  choco install mongodb ( yes/all 나오면 a )
         4.  https://webigotr.tistory.com/241 참고해서 진행 ( Path 추가할때 mongodb 버전 잘확인하기 )
         5.  powershell에서 mongod입력
+
+#6.8 Connecting Mongo
+    ㄴ  mongo > mongo에 접속, exit > mongo에 접속해제
+    ㄴ  mongoose 설치
+        1. npm i mongoose
+        2. src폴더내에 db.js파일 생성
+        3. 터미널에 mongo입력후 나오는 문구의 위에서 두번째줄에 mongodb://로시작하는 mogoUrl이라고 한다.
+            -   ex) mongodb://127.0.0.1:27017
+        4. db.js 에서 mongoose를 연결해줌
+            -   import mongoose from mongoose
+                mongoose.connect("mongodb://127.0.0.1:27017/youtube",{useNewUrlParser:true,useUnifiedTopology:ture})  
+                    >> mongoUrl/DBName, {5번에서 db.js를 import하고 저장했을때 경고문구가 뜨면 위처럼 작성, 그 외엔 optional}
+        5. server.js에서 db.js를 import해줌
+            -   import "./db"
+        6.  db.js에서 mongoose연결 성공,실패에 관련한 logger작성
+            -   const db = monggose.connection
+                const handleError = () => console.log("❌ DB Error",error);
+                const once = () => console.log(("✅ Connected to DB");
+                db.on("error",handleError)
+                db.once("open",handleOpen)
 */
