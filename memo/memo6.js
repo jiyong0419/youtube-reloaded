@@ -134,4 +134,23 @@
     ㄴ  src폴더내에 models라는 폴더를 만들고 Video.js를 만들어준다
         1.  data model파일은 첫글자를 대문자로 한다.
         2.  이 작업은 mongoose에게 우리의 data가 어떤형식을 가지고있는지 정해주기 위해서다.
+
+
+#6.10 Video Model
+    ㄴ  Video.js에서 video model을 만들기전 mongoose를 import해준다
+        1.  import mongoose from "mongoose"
+    ㄴ  data의 형식과 형태를 정의해준다(schema라고한다)
+        1.  const videoSchema = new mongoose.Schema({
+                title: String,
+                description: String,
+                createdAt: Date,
+                hashtags: [{ type: String }],
+                meta: {
+                    views: Number,
+                    rating: Number,
+                }
+            })
+    ㄴ  정의한 schema를 model로 등록한다.
+        1.  const videoModel = mongoose.model("Video", videoSchema)
+            - mongoose.model("모델이름",스키마)
 */
