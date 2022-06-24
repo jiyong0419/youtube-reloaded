@@ -45,10 +45,10 @@ export const postEdit = (req,res) => {
     res.redirect(`/videos/${id}`)
 }
 export const remove = (req,res) => res.send("Remove Video")
-export const getUpload = (req,res) => {
-    res.render("upload",{pageTitle:"Upload Video"})
-}
+export const upload = (req,res) => res.send("Upload Video")
 
+
+<<<<<<< HEAD
 export const postUpload = (req,res) => {
     const newVideo = {
         title : req.body.title,
@@ -61,3 +61,5 @@ export const postUpload = (req,res) => {
     videos.push(newVideo)
     res.redirect("/")
 }
+=======
+>>>>>>> parent of 17381d3 (#6.6 More Practice)
