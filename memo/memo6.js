@@ -154,4 +154,35 @@
         1.  const videoModel = mongoose.model("Video", videoSchema)
             - mongoose.model("모델이름",스키마)
     ㄴ  server.js에선 꼭 제일먼저 import "./db"를하고 import "./models/Video"를해준다
+
+
+#6.11 Our First Query 
+    ㄴ  src폴더내에 init.js를 만들어서 db관련 import문을 작성해주고, application실행문도 작성해준다
+        1.  import "./db"
+            import "./models/Video"
+            import app from "./server"      >>  server.js에서 export default app을 해주자
+            const PORT = 4000
+            const handleListening = () => 
+                console.log(`✅ Server listening on port http://localhost:${PORT} 🚀`);
+            app.listen(PORT,handleListening)
+
+        2.  package.json에서 "scripts"에 sever.js를 init.js로 바꿔준다
+            -   app.listen함수가 init.js에 있기 때문
+    
+    ㄴ  위처럼 한 이유는 server.js는 sever관련된 코드와 init.js는 필요한 모든것들을 import시키는 역할을 담당
+
+    ㄴ  video model 사용하기
+        1.  videoController.js에서 video model을 import
+            -   import videoModel from "../models/Video"
+        2.  database와 연결
+            -   export const home = (req,res) => {
+                    videoModel.find({}, (error,videos)=>{})
+                    res.render("home", {pageTitle:"Home"})
+                }
+        3.  #6.12에 이어서
+
+
+
+
+
 */
