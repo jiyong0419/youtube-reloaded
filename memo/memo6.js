@@ -93,4 +93,10 @@
             export const postUpload = (req,res) => {res.redirect("/")}
         2.  videoRouter.route("/upload").get(getUpload).post(postUpload)
         3.  upload.pug 작성
+
+
+#6.6 More Practice 2
+    ㄴ  req.body를 사용할떄는 input에 꼭 name지정을 해줘야함
+        1.  input(name="title")
+
 */
