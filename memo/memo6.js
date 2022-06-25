@@ -253,13 +253,38 @@
 #6.16 Creating a Video 2
     ㄴ  post된 video document를 database에 저장해보자
         1.  export const postUpload = async (req,res) => {
-            ...
-            ...
-            await video.save() 
-            return res.redirect("/")
+                const video = new videoModel({
+                    title,
+                    description,
+                    createdAt : Date.now(),
+                    hashtags : hashtags.split(",").map((word) => `#${word}`),
+                    meta : {
+                        views : 0,
+                        rating : 0,
+                    },
+                })
+                await video.save() 
+                return res.redirect("/")
             }
             -   save()도 data가 database에 기록되고 저장되는걸 기다려야하기때문에
                 async await를 써서 javascript를 기다리게한다
+
+    ㄴ  save() 말고 create로 database에 저장해보자
+        1.  export const postUpload = async (req,res) => {
+                const {title,desciption,hashtags} = req.body
+                await videoModel.create({
+                    title,
+                    description,
+                    createdAt : date.now(),
+                    hashtags : hashtags.split(",").map((word)=>`#${word}`),
+                    meta : {
+                        views : 0,
+                        rating : 0,
+                    },
+                })
+                return res.redirect("/")
+            }
+            -   async 설정해주고 await가 videoModel.create함수 앞으로온다
                 
 
 
