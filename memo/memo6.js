@@ -221,4 +221,31 @@
         2.  await는 function안에서만 사용할수있고 해당 function은  async여야한다
         3.  await가 적혀있는곳에선 javascript가 데이터베이스와의 연결을 잠시 기다려준다
         4.
+
+
+#6.15 Creating a Video
+    ㄴ  upload 페이지를 구현해보자
+        1.  upload.pug 
+            -   input에 placeholder와 require, name을 붙혀준다
+        2.  videoController.js
+            -   export const postUpload = (req,res) => {
+                    const { title, description, hashtags } = req.body
+                    const video = new videoModel({
+                        title,
+                        description,
+                        createdAt : Date.now(),
+                        hashtags: hashtags.split(",").map((word) => `#${word}`),
+                        meta: {
+                            views:0,
+                            rating:0,
+                        },
+                    })
+                    console.log(video);
+                    return res.redirect("/")
+                }
+                >>  req.body를 사용하여 post된 input값을 받아옴
+                    video document를 만들고 받아온 input값들을 document내부에 작성
+                    hashtags같은경우 문자열로 이루어진 배열이기떄문에 ("hi,how,are,you")
+                    hashtags.split(",")으로 comma로 문자를 구분해준 뒤
+                    .map((word)=>`#${word})로 구분된 문자열앞에 #을 붙혀줌
 */
