@@ -171,7 +171,7 @@
     
     ㄴ  위처럼 한 이유는 server.js는 sever관련된 코드와 init.js는 필요한 모든것들을 import시키는 역할을 담당
 
-    ㄴ  video model 사용하기
+    ㄴ  video model 사용하기 (콜백함수)
         1.  videoController.js에서 video model을 import
             -   import videoModel from "../models/Video"
         2.  database와 연결
@@ -182,7 +182,43 @@
         3.  #6.12에 이어서
 
 
+#6.12 Our First Query2
+    ㄴ  video model 사용하기 이어서
+        1.  videoModel.find()의 콜백함수 작성하기
+            -   export const home = (req,res) => {
+                    videoModel.find({},(error,videos)=>{
+                        console.log("errors",error);
+                        console.log("videos",videos);
+                        res.render("home",{pageTitle:"Home"})
+                    })
+                }
+        2.  실행순서는 home함수 내부에 실행문이 먼저 실행되고
+            그 다음 렌더링이 끝나고 로거가 뜬다
+            모델관련함수는 실행속도가 가장늦다.
+            허나, 모델관련함수안에 렌더함수를 집어넣음으로써
+            실행순서는 home함수 > 모델관련함수 > 로거 순이다
 
 
-
+#6.13 Async Await
+    ㄴ  video model 사용하기 (promise)
+        1.  export const home = async(req,res) => {
+                try{
+                    console.log("start");                       (1)
+                    const videos = await videoModel.find({})    (2)
+                    console.log(videos);                        (3)
+                    console.log("finish");                      (4)
+                    res.render("home",{ pageTitle:"Home",videos })  (5)
+                } catch(error) {
+                    res.render("server-error",error)
+                }
+            }   
+            -   promise방식은 async가 route argument(res,req)앞에 붙는다
+            -   promise방식은 model함수앞에 await가 붙는다
+            -   promise방식의 에러잡는법은 try catch문을 이용한다
+            
+    ㄴ  promise의 특징
+        1.  직관적 (실행순서가 직관적이다)
+        2.  await는 function안에서만 사용할수있고 해당 function은  async여야한다
+        3.  await가 적혀있는곳에선 javascript가 데이터베이스와의 연결을 잠시 기다려준다
+        4.
 */
