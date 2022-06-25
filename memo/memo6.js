@@ -288,4 +288,30 @@
                 
 
 
+#6.17 Exeptions and Validation
+    ㄴ  post된 data에 error가 있을때 예외처리하는법
+        1.  export const postUpload = async(req,res) => {
+                try{
+                    const { title, description, hashtags } = req.body
+                    await videoModel.create({
+                        title, /* === title:title 
+                        description,
+                        hashtags: hashtags.split(",").map((word) => `#${word}`),
+                        meta: {
+                            views:0,
+                            rating:0,
+                        },
+                    })
+                    return res.redirect("/")
+                } catch(error) {
+                    return res.render("upload",{pageTitle:"Upload Video",errorMessage:error._message,})
+                }
+            }
+            -   try catch문으로 감싸주고
+                catch는 error를 parameter로 줄수있고
+                그것을 이용하여 upload.pug에 errorMessage를 던져줄수있다.
+    
+    ㄴ  스키마에서 데이터타입을 정해줄뿐 아니라 required,default값도 정해줄수있다.
+        1.  createdAt : { type : Date, required : true,  default : Date.now }
+            -   Date.now()라고 적으면 즉각실행이되어서 시간이틀린다.
 */
