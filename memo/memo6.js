@@ -314,4 +314,13 @@
     ㄴ  스키마에서 데이터타입을 정해줄뿐 아니라 required,default값도 정해줄수있다.
         1.  createdAt : { type : Date, required : true,  default : Date.now }
             -   Date.now()라고 적으면 Video.js가 저장된 시간이 default값으로된다.
+
+
+#6.18 More Schema
+    ㄴ  스키마에서 문자열의 양 끝 띄어쓰기도 지울수 있고(trim), 글자수도 제한 할 수 있다(maxLength,minLength).
+        1.  title: { type : String, required : true, trim : true, maxLength : 80 },
+            description: { type : String, required : true, trim : true, minLength : 20 },
+            -   글자수 제한은 uplod.pug 템플릿의 input에서도 이중으로 제한해주는것이 좋다
+                >>  html에서 maxlength,minlength를 쓰는것은 사용자의 편의를 위하여
+                    스키마에서 maxLength,minLength를 쓰는것은 보안을 위하여
 */
