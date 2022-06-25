@@ -248,4 +248,19 @@
                     hashtags같은경우 문자열로 이루어진 배열이기떄문에 ("hi,how,are,you")
                     hashtags.split(",")으로 comma로 문자를 구분해준 뒤
                     .map((word)=>`#${word})로 구분된 문자열앞에 #을 붙혀줌
+
+
+#6.16 Creating a Video 2
+    ㄴ  post된 video document를 database에 저장해보자
+        1.  export const postUpload = async (req,res) => {
+            ...
+            ...
+            await video.save() 
+            return res.redirect("/")
+            }
+            -   save()도 data가 database에 기록되고 저장되는걸 기다려야하기때문에
+                async await를 써서 javascript를 기다리게한다
+                
+
+
 */
