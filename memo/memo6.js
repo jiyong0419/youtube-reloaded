@@ -313,5 +313,5 @@
     
     ㄴ  스키마에서 데이터타입을 정해줄뿐 아니라 required,default값도 정해줄수있다.
         1.  createdAt : { type : Date, required : true,  default : Date.now }
-            -   Date.now()라고 적으면 즉각실행이되어서 시간이틀린다.
+            -   Date.now()라고 적으면 Video.js가 저장된 시간이 default값으로된다.
 */
