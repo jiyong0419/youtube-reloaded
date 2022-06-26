@@ -323,4 +323,25 @@
             -   글자수 제한은 uplod.pug 템플릿의 input에서도 이중으로 제한해주는것이 좋다
                 >>  html에서 maxlength,minlength를 쓰는것은 사용자의 편의를 위하여
                     스키마에서 maxLength,minLength를 쓰는것은 보안을 위하여
+  
+                    
+#6.19 
+    ㄴ  mongoose에서 임의로 배정해주는 id는 문자열과 숫자가 섞인 16진수 24자리라서
+        router에서 id를 필터링해주는 정규표현식을 수정해야한다.
+        1.  videoRouter.js에서 (/:id(\\d+)) >> (/:id[0-9a-f]{24})
+            -   [0-9a-f]는 16진수를 뜻하고 {24}는 자릿수를뜻함
+    
+    ㄴ  watchController를 수정해줌
+        1.  watchController는 mongoose가 부여한 16진수24자리 id를 받아서
+            해당 id에 맞는 영상의 화면을 렌더링 해주어야함
+            -   export const watch = async(req,res) => {
+                    const id = req.params.id
+                    const video = await videoModel.findById(id)
+                    res.render("watch",{ pageTitle:video.title,video})
+                }
+                >>  Model.findById()를 이용해서 database에 접근했기때문에
+                    async와 await를 써줌
+                >>  database에서 id로 받아온 data를 video에 담아 watch.pug에 전송해줌
+                
+    ㄴ  watch.pug템플릿을 일부 수정
 */
