@@ -1,0 +1,9 @@
+extends base.pug 
+
+block title     
+    h2 #{video.views} #{video.views < 2 ? "view" : "views"}
+    a(href=`${video.id}/edit`) Edit Video &rarr;
+//- extends = base.pug를 상속함
+    block  = base.pug에 만들어진 block공간을 태그들로 채움
+    #{video.views < 2 ? "view" : "views"} >> 삼항조건문
+     a(href=`${video.id}/edit`) >> relative URL >> localhost:4000/3 에서 localhost:4000/3/edit으로 변함

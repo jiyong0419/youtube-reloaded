@@ -1,0 +1,11 @@
+extends base.pug 
+
+block title     
+    h4 Change Title of video
+    form(method="POST")
+        input(name="title", placeholder="Video Title",value=video.title,required)
+        input(value="Save",type="Submit")
+//- extends = base.pug를 상속함
+    block  = base.pug에 만들어진 block공간을 태그들로 채움
+    method="POST"는 form태그안에 submit버튼이 눌리면 form을 POST해준다. 
+    

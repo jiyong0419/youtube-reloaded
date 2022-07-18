@@ -1,0 +1,15 @@
+extends base.pug 
+include mixins/video
+
+block title     
+    h1 Welcome!
+    each video in videos 
+        +video(video)
+    else 
+            li Sorry nothig found.
+
+//- extends = base.pug를 상속함
+    block  = base.pug에 만들어진 block공간을 태그들로 채움
+    each else 문 사용예시
+    +video(video) = video mixin을 사용하는 법 >> + mixin이름(파라미터)
+    mixin을 사용하려면 include mixins/파일명 을 해줘야함

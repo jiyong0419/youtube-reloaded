@@ -1,0 +1,24 @@
+doctype html 
+html(lang="ko")
+    head    
+        title #{pageTitle} | Youtube
+        link(rel="stylesheet" href="https://unpkg.com/mvp.css")
+    body 
+        header 
+            h1=pageTitle
+            nav 
+                ul 
+                    li  
+                        a(href="/videos/upload") Upload Video
+        main
+            block title
+        include partials/footer.pug
+
+
+//- 
+    title #{pageTitle} = 컨트롤러로 넘겨받은 pageTitle변수가 적용됨
+    link(rel="stylesheet" href="https://unpkg.com/mvp.css") >> MVPcss 적용 링크
+
+    h1=pageTitle >> pageTitle변수가 h1태그에 적용됨
+    block = 공간을 만듬
+    include = footer partial 적용
