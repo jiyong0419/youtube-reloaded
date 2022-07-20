@@ -2,14 +2,33 @@
 import Video from "../models/Video" // Video model 임포트
 
 //컨트롤러 선언문
-export const home = (req,res) => {
+export const home = async(req,res) => {
+    const videos = await Video.find({})
+    if(!videos){
+        //return res.render("errorPage")
+    }
+    return res.render("home",{pageTitle:"Home",videos})
+    
+    /* 
+    async와 await를 이용한 DB와의 접근법과 try catch를 이용한 에러검출
+    try{
+        const videos = await Video.find({})
+        return res.render("home",{ pageTitle: "Home", videos})
+    } catch {
+        return res.render("errorPage")
+    }
+    */
+
     /*
-    콜백함수를 이용한 DB와의 접근법
+    콜백함수를 이용한 DB와의 접근법 ( 이거의 장점은 에러들을 바로 콘솔에서 볼수있다는것 )
     Video.find({},(error,videoData)=>{
         console.log("errors",error);
         console.log("videos",videoData);
+        if(error){
+            return res.render("errorPage")
+        }
         res.render("home", { pageTitle:"Home",videos:[]})                   
-    })    //
+    })    
     */
 }   
 export const watch =  (req,res) => {
