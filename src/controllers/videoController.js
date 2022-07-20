@@ -7,6 +7,7 @@ export const home = async(req,res) => {
     if(!videos){
         //return res.render("errorPage")
     }
+    console.log(videos);
     return res.render("home",{pageTitle:"Home",videos})
     
     /* 
@@ -47,8 +48,34 @@ export const postEdit = (req,res)=>{
 export const getUpload = (req,res) =>{
     return res.render("upload",{pageTitle:"Upload Video"})
 }
-export const postUpload = (req,res) =>{
-    const {title} = req.body
+export const postUpload = async(req,res) =>{
+    const {title,description,hashtags} = req.body
+    // DB에 데이터 저장하는 법1 (create방식)
+    await Video.create({
+        title,
+        description,
+        createdAt: Date.now(),
+        hashtags: hashtags.split(",").map(word => `#${word}`),
+        meta: {
+            views:0,
+            rating:0,
+        },
+    })
+    /*
+    DB에 데이터 저장하는 법2 (save방식)
+        const video = new Video({
+            title,
+            description,
+            createdAt: Date.now(),
+            hashtags: hashtags.split(",").map(word => `#${word}`),
+            meta: {
+                views:0,
+                rating:0,
+            },
+        })
+        await video.save() 
+   */
+
     // 배열에 요소추가 array.push()
     return res.redirect("/")
 } 
