@@ -1,4 +1,5 @@
 //임포트문
+import "./db"                                       //db.js 파일 자체를 임포트해줌으로써 server.js가 mongoDB안의 youtube데이터에 연결
 import express from "express"                       // express 패키지 임포트
 import morgan from 'morgan';                        // morgan 패키지 임포트
 import globalRouter from './routers/globalRouter';  //globalRouter 임포트
@@ -24,5 +25,5 @@ server.use("/users",userRouter)
 server.use("/videos",videoRouter)
 
 //리슨함수 설정
-const handleListening = () => {console.log(`Server listening on port ${PORT}🚀`)}  // 리스닝함수 선언
+const handleListening = () => {console.log(`✅ Server listening on port http://localhost:${PORT} 🚀`)}  // 리스닝함수 선언
 server.listen(PORT,handleListening)                                                 // 리슨함수
